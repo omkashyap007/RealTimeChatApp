@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<style>
+.home-container {
+  display : grid ; 
+  grid-template-columns : 1.5fr 5fr 2.5fr ; 
+  grid-gap : 5px ; 
+  margin:5px; 
+}
+
+.home-container > *{ 
+  margin : 5px ; 
+}
+
+</style>
+
+<div class = "home-container" >
+  
+  <div>
+    {% include "base/topic_component.html" %}
+  </div>
+  
+  <div>
+    {% include "base/rooms_component.html" %}
+  </div>
+  
+  <div>
+    {% include "base/recent_activity.html" %}
+  </div>
+
+</div>
+    {% endblock content %}

@@ -1,0 +1,37 @@
+<div class="activities">
+  <div class="activities__header">
+    <h2>Recent Activities</h2>
+  </div>
+
+  {% for message in room_messages %}
+  <div class="activities__box">
+    <div class="activities__boxHeader roomListRoom__header">
+      <a
+        href="{% url 'user-profile' pk=message.user.id %}"
+        class="roomListRoom__author"
+      >
+        <div
+          class="avatar avatar--small {% if message.user.is_active %}active{% endif %}"
+        >
+          <img src="{{message.user.profile.image.url}}" />
+        </div>
+        <p>
+          @{{message.user.username}}
+          <span>{{message.created|timesince}} ago</span>
+        </p>
+      </a>
+    </div>
+    <div class="activities__boxContent">
+      <p>
+        replied on room “<a href="{% url 'chat-room' pk=message.room.id %}">
+          {{message.room.roomname}}</a
+        >”
+      </p>
+      <div class="activities__boxRoomContent">
+        {{message.body|truncatechars:100}}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+<!-- Activities End -->

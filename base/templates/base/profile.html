@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+
+<style>
+  .profile-container {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-gap: 5px;
+  }
+
+  .profile-container > * {
+    margin: 10px;
+  }
+</style>
+
+<div class="profile-container">
+    
+  {% include "base/topic_component.html" %} 
+  {% include "base/rooms_component.html" %}
+  {% include "base/recent_activity.html" %}
+</div>
+{% endblock content %}

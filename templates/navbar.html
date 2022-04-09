@@ -1,0 +1,21 @@
+<div style="display: flex; flex-direction: row; align-items: baseline">
+  <a href="">
+    <h1>The Site logo</h1>
+  </a>
+
+  <form method="GET" action="{% url 'chat-home' %}" style="margin-left: 10px">
+    <input type="text" name="q" placeholder="Search Rooms ..." />
+  </form>
+
+  <div class="auth__class">
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'auth-logout' %} " style="margin-left: 20px"> Logout </a>
+
+    {% else %}
+    <a href="{% url 'auth-login' %} " style="margin-left: 20px">Login </a>
+    <a href="{% url 'auth-register' %} " style="margin-left: 20px">
+      Register
+    </a>
+    {% endif %}
+  </div>
+</div>

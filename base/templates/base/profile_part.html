@@ -1,0 +1,23 @@
+<div class="profile">
+    <div class="profile__avatar">
+      <div class="avatar avatar--large active">
+        <img src="{{user.profile.image.url}}" />
+      </div>
+    </div>
+    <div class="profile__info">
+      <h3>{% if user.profile.first_name %} {{user.profile.first_name}} {% if user.profile.last_name %} {{user.profile.last_name}} {% endif %} {% endif %} </h3>
+      <p>@{{user.username}}</p>
+      <p>{{user.email}}</p>
+      {% if request.user == user %}
+      <a href="{% url 'edit-profile' pk=request.user.id %}" class="btn btn--main btn--pill">Edit Profile</a>
+      {% endif %}
+    </div>
+    <div class="profile__about">
+      <h3>About</h3>
+      <p>
+        {% if user.profile.aboutuser %}
+        {{user.profile.aboutuser}}
+        {% endif %}
+      </p>
+    </div>
+  </div>
