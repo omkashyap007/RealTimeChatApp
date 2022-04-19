@@ -101,3 +101,5 @@ class ChatConsumer(AsyncWebsocketConsumer) :
         message.save()
         print(message)
         print("The message was saved !") 
+        
+# passwordTESTING008!#@
